@@ -1,9 +1,10 @@
 class DetailsController {
   constructor() {
-    this.details;
-    this.controls = document.querySelectorAll(".faq-details__control");
-    this.faqImg = document.querySelector(".imgs");
+    this.details; // Placeholder variable for details
+    this.controls = document.querySelectorAll(".faq-details__control"); // Selects FAQ control elements
+    this.faqImg = document.querySelector(".imgs"); // Selects image element
 
+    // Array of FAQ objects containing titles, descriptions, and image URLs
     this.faqs = [
       {
         title: "How do I care for wooden furniture?",
@@ -25,10 +26,12 @@ class DetailsController {
       },
     ];
 
+    // Calling the renderFAQs() and changeImage() methods when class is created
     this.renderFAQs();
     this.changeImage();
   }
 
+  // Method to set up event listeners for each FAQ details
   setupDetails() {
     this.details = document.querySelectorAll("details");
     this.details.forEach((targetDetail) => {
@@ -38,9 +41,11 @@ class DetailsController {
     });
   }
 
+  // Method to render FAQ elements in the DOM
   renderFAQs() {
     const faqContainer = document.querySelector(".faq-details");
 
+    // Loop through each FAQ object and create corresponding HTML elements
     this.faqs.forEach((faq, index) => {
       const detail = document.createElement("details");
       detail.classList.add("faq-details__control");
@@ -50,6 +55,7 @@ class DetailsController {
       `;
       faqContainer.appendChild(detail);
 
+      // Set up event listeners for each FAQ detail and call changeImage() method on click
       this.setupDetails();
       detail.addEventListener("click", () => {
         this.changeImage(index);
@@ -57,6 +63,7 @@ class DetailsController {
     });
   }
 
+  // Method to close other FAQ details when one is clicked
   closeOtherDetails(targetDetail) {
     this.details.forEach((detail) => {
       if (detail !== targetDetail) {
@@ -65,13 +72,17 @@ class DetailsController {
     });
   }
 
+  // Method to change the displayed image based on the FAQ clicked
   changeImage(index) {
     if (!this.faqs[index]) {
+      // If the FAQ index doesn't exist sets the image to the first FAQ's image
       this.faqImg.style.background = `url(${this.faqs[0].image}) no-repeat center center`;
       return;
     }
+    // Set the image based on the clicked FAQ's image URL
     this.faqImg.style.background = `url(${this.faqs[index].image}) no-repeat center center`;
   }
 }
 
+// Instantiating the DetailsController class
 const detailsController = new DetailsController();

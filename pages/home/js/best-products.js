@@ -1,26 +1,30 @@
+// Base Product class with specific properties
 class Product {
   constructor(imageSrc, title, stars, currency, price) {
-    this.imageSrc = imageSrc;
-    this.title = title;
-    this.stars = stars;
-    this.currency = currency;
-    this.price = price;
+    this.imageSrc = imageSrc; // URL of product image
+    this.title = title; // Name of product
+    this.stars = stars; // Rating of product
+    this.currency = currency; // Currency symbol for product price
+    this.price = price; // Price of product
   }
 
   render() {
-    throw new Error("render method not implemented");
+    throw new Error("render method not implemented"); // Placeholder method for rendering a product
   }
 }
 
+// Represents a specific type of Product which inherits from Product
 class ProductElement extends Product {
   constructor(imageSrc, title, stars, currency, price) {
-    super(imageSrc, title, stars, currency, price);
+    super(imageSrc, title, stars, currency, price); // Calls parent class constructor
   }
 
+  // Renders product information into a DOM element
   render() {
-    const productsContainer = document.createElement("div");
-    productsContainer.classList.add("best-selling-product__item");
+    const productsContainer = document.createElement("div"); // Creates a container for product
+    productsContainer.classList.add("best-selling-product__item"); // Adds a class to container
 
+    // SVG code for a star icon
     const starIcon = `
     <svg
       width="19"
@@ -36,19 +40,16 @@ class ProductElement extends Product {
     </svg>
 `;
 
+    // Creates star icon based on product star rating
     const starIcons = Array.from({ length: this.stars }, () => starIcon).join(
       ""
     );
 
+    // Constructs HTML content for product information
     const productInfo = `
     <div class="best-selling-product__item-content">
       <div class="best-selling-product__item-image-content">
-        <img
-          class="best-selling-product__item-image"
-          src="${this.imageSrc}"
-          alt=""
-          srcset=""
-        />
+        <img class="best-selling-product__item-image" src="${this.imageSrc}" alt="" srcset="" />
       </div>
       <div class="best-selling-product__item-info">
         <h5 class="best-selling-product__item-name">${this.title}</h5>
@@ -61,38 +62,33 @@ class ProductElement extends Product {
             <span>${this.price}</span>
           </span>
           <button class="best-selling-product__item-button">
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M22.1342 12.2102C22.1342 11.4411 21.5107 10.8176 20.7415 10.8176H13.7782V3.85427C13.7782 3.08512 13.1547 2.46161 12.3856 2.46161C11.6164 2.46161 10.9929 3.08512 10.9929 3.85427V10.8176H4.02962C3.26048 10.8176 2.63696 11.4411 2.63696 12.2102C2.63696 12.9794 3.26048 13.6029 4.02962 13.6029H10.9929V20.5662C10.9929 21.3353 11.6164 21.9588 12.3856 21.9588C13.1547 21.9588 13.7782 21.3353 13.7782 20.5662V13.6029H20.7415C21.5107 13.6029 22.1342 12.9794 22.1342 12.2102Z"
-                fill="white"
-              />
+                fill="white" />
             </svg>
           </button>
         </div>
       </div>
-    </div>
-  `;
+  </div>`;
 
-    productsContainer.innerHTML = productInfo;
-    return productsContainer;
+    productsContainer.innerHTML = productInfo; // Puts product information into container
+    return productsContainer; // Returns container with rendered product information
   }
 }
 
+// Handles rendering a collection of Product elements
 class ProductRenderer {
   constructor(products, containerSelector, productClass) {
-    this.products = products;
-    this.container = document.querySelector(containerSelector);
-    this.productClass = productClass;
+    this.products = products; // Array of product data
+    this.container = document.querySelector(containerSelector); // Selects container where products will be rendered
+    this.productClass = productClass; // Class used for rendering each product
   }
 
+  // Renders product data into specified container
   renderData() {
     this.products.forEach((productData) => {
+      // Creates an instance of product class for each product data
       const product = new this.productClass(
         productData.imageSrc,
         productData.title,
@@ -100,12 +96,15 @@ class ProductRenderer {
         productData.currency,
         productData.price
       );
+
+      // Renders product and appends it to container
       const productElement = product.render();
       this.container.appendChild(productElement);
     });
   }
 }
 
+// Array of product data
 const productData = [
   {
     imageSrc: "../../images/chair1.png",
@@ -137,10 +136,11 @@ const productData = [
   },
 ];
 
+// Initialized Product elements using ProductRenderer
 const productRenderer = new ProductRenderer(
   productData,
   ".best-selling-product__grid",
   ProductElement
 );
 
-productRenderer.renderData();
+productRenderer.renderData(); // Renders product data into specified container

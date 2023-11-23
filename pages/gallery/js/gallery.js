@@ -1,35 +1,41 @@
+// Image class object with a source and alternate text
 class Image {
   constructor(src, alt) {
-    this.src = src;
-    this.alt = alt || "furnitureImage";
+    this.src = src; // Image source (URL)
+    this.alt = alt || "furnitureImage"; //  Alt for image default is "furnitureImage"
   }
 }
 
+// Handles rendering of Image objects into a specified container
 class ImageRenderer {
   constructor(containerSelector) {
-    this.container = document.querySelector(containerSelector);
+    this.container = document.querySelector(containerSelector); // Selects container where images will be rendered
   }
 
+  // Renders an array of image sources into specified container
   render(images) {
     images.forEach((imageSrc) => {
-      const img = new Image(imageSrc);
-      this.renderImage(img);
+      const img = new Image(imageSrc); // Creates an Image object for each image source
+      this.renderImage(img); // Renders each Image object
     });
   }
 
+  // Renders a single Image object into container
   renderImage(image) {
-    const imgContainer = document.createElement("div");
-    const imgElement = document.createElement("img");
-    imgContainer.classList.add("gallery__image");
+    const imgContainer = document.createElement("div"); // Creates a container element for image
+    const imgElement = document.createElement("img"); // Creates an img element
 
-    imgElement.src = image.src;
-    imgElement.alt = image.alt;
+    imgContainer.classList.add("gallery__image"); // Adds a class to image container
 
-    imgContainer.appendChild(imgElement);
-    this.container.appendChild(imgContainer);
+    imgElement.src = image.src; // Sets image source
+    imgElement.alt = image.alt; // Sets alt for image
+
+    imgContainer.appendChild(imgElement); // Appends image element to its container
+    this.container.appendChild(imgContainer); // Appends image container to specified container in document
   }
 }
 
+// Array of image source URLs
 const imageSrcs = [
   "../../images/gallery1.avif",
   "../../images/gallery2.avif",
@@ -54,5 +60,5 @@ const imageSrcs = [
   "../../images/gallery21.avif",
 ];
 
-const imageRenderer = new ImageRenderer(".gallery__content");
-imageRenderer.render(imageSrcs);
+const imageRenderer = new ImageRenderer(".gallery__content"); // Initializes an ImageRenderer object with class name ".gallery__content"
+imageRenderer.render(imageSrcs); // Renders array of image sources into container
