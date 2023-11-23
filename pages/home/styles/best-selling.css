@@ -1,0 +1,117 @@
+.best-selling-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+  background-color: #f7f7f7;
+}
+
+.best-selling-product__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 268px);
+  gap: 88px 42px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.best-selling-product__title {
+  color: #1e1e1e;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  padding-bottom: 140px;
+}
+
+.best-selling-product__item {
+  max-width: 268px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.best-selling-product__item:hover .best-selling-product__item-image {
+  transform: translate(-50%, -60%);
+  transition: transform 0.5s ease;
+}
+
+.best-selling-product__item-image-content {
+  position: relative;
+  min-height: 239px;
+  background-color: #fafafa;
+  border-radius: 20px 20px 0 0;
+}
+
+.best-selling-product__item-image {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.best-selling-product__item-info {
+  padding: 13px 21px 27px 13px;
+}
+
+.best-selling-product__item-name {
+  color: #0d1b39;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-bottom: 6px;
+}
+
+.best-selling-product__item-ratings {
+  padding-bottom: 24px;
+}
+
+.best-selling-product__item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.best-selling-product__item-price-currency {
+  display: inline-block;
+  transform: scale(0.75) translateY(-6px) translateX(4px);
+}
+
+.best-selling-product__item-price {
+  color: #0d1b39;
+  font-size: 21.325px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.best-selling-product__item-button {
+  display: flex;
+  cursor: pointer;
+  border-radius: 31px;
+  background: #0d1b39;
+  padding: 10px;
+}
+
+/* For tablet devices */
+@media only screen and (max-width: 768px) {
+  .best-selling-product__grid {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .best-selling-product__item {
+    max-width: 100%;
+  }
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 480px) {
+  .best-selling-product__grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .best-selling-product__item {
+    max-width: 100%;
+  }
+}
