@@ -2,6 +2,10 @@
 
 This website offers a seamless shopping experience for furniture enthusiasts. Crafted using HTML5, CSS3, and JavaScript, it follows an organized structure rooted in Object-Oriented Programming (OOP) principles and SOLID design practices.
 
+## Website URL
+
+The live version of this website can be accessed at [Website URL](https://wt-cw-1-gsa3.vercel.app/pages/home/index.html).
+
 ### Key Points
 
 - **Sleek Design & Responsiveness**: The website uses modern design adapts seamlessly across devices, ensuring a consistent experience on desktops, tablets, and mobiles.
