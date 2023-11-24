@@ -1,11 +1,15 @@
 .hero {
   position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 86.13%, #fff 100%),
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 86.13%,
+      var(--color-white) 100%
+    ),
     url(../../../images/wall-black.png), lightgray 50% / cover no-repeat;
   background-size: cover;
   background-position: center;
   height: 67.75rem;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .bubble {
@@ -50,7 +54,7 @@
 .bubble__inner-content--circle {
   height: 1.5rem;
   width: 1.5rem;
-  border: 2px #fff solid;
+  border: 2px var(--color-white) solid;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -86,11 +90,11 @@
 }
 
 .search-section__title {
-  color: #fff;
+  color: var(--color-white);
   font-size: clamp(2rem, 5vw, 4.3rem);
   font-style: normal;
   font-weight: 400;
-  line-height: 130%; /* 6.5rem */
+  line-height: 130%;
   letter-spacing: -0.05rem;
   text-transform: capitalize;
   margin-bottom: 0.88rem;
@@ -98,7 +102,7 @@
 
 .search-section__description {
   max-width: 37rem;
-  color: #fff;
+  color: var(--color-white);
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-style: normal;
   font-weight: 100;
@@ -114,14 +118,14 @@
   align-items: center;
   padding: 0.5rem 0.5rem 0.5rem 1.25rem;
   border-radius: 2.625rem;
-  border: 0.862px solid #ffffff99;
-  background: #ffffff26;
+  border: 0.862px solid var(--light-gray);
+  background: var(--dark-gray);
   backdrop-filter: blur(4px);
   margin-top: 2.81rem;
 }
 
 .search-section__input-field {
-  color: #fff;
+  color: var(--color-white);
   padding: 0.4rem;
   font-size: 1.125rem;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
@@ -134,7 +138,7 @@
 }
 
 .search-section__input-field::placeholder {
-  color: #fff;
+  color: var(--color-white);
   font-size: clamp(0.9rem, 2.5vw, 1.125rem);
 }
 
@@ -142,13 +146,11 @@
   display: grid;
   place-items: center;
   border-radius: 1.5rem;
-  background: #e58411;
+  background: var(--main-color);
   padding: 0.625rem;
-  fill: #333;
   cursor: pointer;
 }
 
-/* For tablet devices */
 @media only screen and (max-width: 768px) {
   .bubble {
     display: none;

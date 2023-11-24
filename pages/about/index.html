@@ -19,7 +19,7 @@
     <h3 class="navbar__logo"><a href="../home/index.html">Atlas</a></h3>
     <ul class="navbar__menu">
       <li class="navbar__menu-item">
-        <a href="../about/index.html" class="navbar__menu-link">About</a>
+        <a href="../about/index.html" class="navbar__menu-link navbar__menu-link--active">About</a>
       </li>
       <li class="navbar__menu-item">
         <a href="../contact-us/index.html" class="navbar__menu-link">Contact Us</a>
@@ -40,6 +40,25 @@
         </svg></a>
     </div>
   </nav>
+
+  <div class="hamburger hamburger--fixed">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger__menu-icon menu-black">
+      <span class="hamburger__bar"></span>
+      <span class="hamburger__bar"></span>
+      <span class="hamburger__bar"></span>
+    </label>
+    <nav class="hamburger__menu">
+      <ul>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="./about/index.html">About</a></li>
+        <li><a href="../contact-us/index.html">Contact Us</a></li>
+        <li><a href="../faq/index.html">FAQ</a></li>
+        <li><a href="../gallery/index.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </div>
+
   <main class="location">
     <div class="location__info">
       <h2 class="location__title">How to find us?</h2>
@@ -140,6 +159,7 @@
       </div>
     </div>
   </footer>
+
 </body>
 
 </html>
