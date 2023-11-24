@@ -207,7 +207,7 @@
 
 .footer__main {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   padding-bottom: 8.1rem;
   gap: 9.5rem;
